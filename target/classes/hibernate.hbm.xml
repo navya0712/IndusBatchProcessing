@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.indus.training.persist.entity">
+	<class name="Employee" table="EMPLOYEE">
+		<id name="employeeId" column="EMPLOYEE_ID">
+			<generator class="identity" />
+		</id>
+		<property name="firstName" column="FIRST_NAME" />
+		<property name="lastName" column="LAST_NAME" />
+	</class>
+	<query name="Employee.findAll">
+            <![CDATA[FROM Employee e]]>
+        </query>
+	<query name="Employee.findByLastName">
+            <![CDATA[FROM Employee e WHERE e.lastName = :lastName]]>
+        </query>
+</hibernate-mapping>
